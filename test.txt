@@ -1,0 +1,118 @@
+To eat in a restaurant we can
+say that:
+● We go out to a restaurant.
+● Sit at the table.
+● Order is taken by the service.
+● We eat the food.
+● We can rate the food if we want
+to or write a review in their
+feedback manual (optional).
+● Then the bill arrives (with the
+order summary) and we pay the
+bill.
+Well, this AR app for menu cards at
+restaurants can give a very great
+experience to the people coming at
+the restaurants to eat food.
+The physical menus cards can be
+replaced by these augmented reality
+cards.
+The dishes can actually be seen out
+on your table in augmented reality
+Now we can use the id of these 3
+elements to update the details in the
+database.
+Let’s add the fields required for this in
+the database first.
+Since rating and review will not be for
+complete orders in one go, we will
+have a separate rating and review field
+for each dish.
+
+Now we will write a function,
+handleRatings() to the values in the
+database.
+We already have a button “RATE
+DISH”; for this button, we will update
+the click event listener to call the
+handleRatings() function.
+
+The dish can be rated when the
+customer is sitting at the table before
+making a payment, if he/she wants to!
+For this we will:
+● Get the table number value.
+● Use table number to get the
+order summary.
+● Get the current_orders list.
+● Use the if condition:
+○ to check if the list is
+empty using the length
+property, and
+○ if the dish scanned
+through the marker is
+present in the current
+orders list.
+● Else show the alert that the dish
+is not present.
+
+If the list of current_orders length is
+greater than 0 then:
+● We can set the display visibility
+of the modal to flex.
+● Get the rating-input (id of the
+element) element using
+getElementById() and initialize
+the element value with an
+empty string.
+● Get the feedback-input (id of
+the element) element using
+getElementById() and initialize
+the element's value with 0.
+● Get the save-rating-button (id
+of the element) using
+getElementById() and add a
+click event listener to it.
+● Update the rating-input and
+feedback-input in the
+database.
+Else show the alert warning using
+swal() function.
+
+Now we can test the output using
+ngrok:
+● Scan the dish marker.
+● Click on “RATE DISH”.
+● Write a review.
+● Rate.
+Click on submit.
+● Verify the update in the
+database.
+● Test the output for the dish
+which is not added in the
+current_order.
+
+We will use the value of the
+last_rating and last_review from the
+database.
+To add the plane entity:
+● Create an ‘a-entity’ element
+using
+document.createElement().
+● Set the id(from the db),
+position, rotation, width,
+height attribute using
+.setAttribute().
+● Append the plane entity to the
+marker using .appendChild().
+To add the text(review and ratings)
+entity:
+● Create an ‘a-entity’ element
+using
+document.createElement().
+● Set the id(from the db),
+position, rotation, width, text
+attribute using .setAttribute().
+● Append the text entity to the
+price plane using
+.appendChild().
